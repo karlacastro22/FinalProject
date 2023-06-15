@@ -14,9 +14,9 @@ struct ContentView: View {
                 Color("bkColor")
                     .edgesIgnoringSafeArea(.all)
                 VStack {
-                    
                     Text("Clean Closet")
-                        .font(.largeTitle)
+                        .font(.custom("AmericanTypewriter", fixedSize:34))
+                        //.font(.largeTitle)
                         .fontWeight(.bold)
                         .foregroundColor(Color("gColor"))
                         .padding(.bottom)
@@ -27,7 +27,7 @@ struct ContentView: View {
                             ForEach(0..<10) {
                                 Text("Item \($0)")
                                     .foregroundColor(.white)
-                                    .font(.largeTitle)
+                                    .font(.custom("American Typewriter", fixedSize: 23))
                                     .frame(width: 125, height: 125)
                                     .background(.green)
                             }
@@ -96,6 +96,7 @@ struct ContentView: View {
                         
                     }
                 }
+                .padding(.top, 60.0)
             }
         }
     }
