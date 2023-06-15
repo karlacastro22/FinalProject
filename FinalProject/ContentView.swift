@@ -78,18 +78,31 @@ struct ContentView: View {
                         }
                     }
                     .frame(height: 100)
-                    .padding(EdgeInsets(top: -50, leading: 15, bottom: 100, trailing: 15))
+                    .padding(EdgeInsets(top: -50, leading: 15, bottom:0, trailing: 15))
                     NavigationLink(destination: CameraView()) {
-                        Text("Camera")
+                        Image("camButton")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 150)
+                        Spacer()
+                            .padding(.leading, -400.0)
+                    }
+                    NavigationLink(destination: SearchView()) {
+                        Image("iButton")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 50)
+                            .padding(.trailing, 275.0)
+                        
                     }
                 }
             }
         }
     }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+    
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+        }
     }
 }
