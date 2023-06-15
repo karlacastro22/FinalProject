@@ -10,35 +10,40 @@ import SwiftUI
 struct CameraView: View {
     @State var isImagePickerShowing = false
     @State var selectedImage: UIImage?
+    @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
+    
     
     var body: some View {
         VStack {
-            
-            Image(uiImage: selectedImage ?? UIImage(named: "Camera2")!)
-                .resizable()
+            Image(uiImage: selectedImage ?? UIImage(named: "AppIcon")!)
+                .resizable(resizingMode: .stretch)
                 .aspectRatio(contentMode: .fit)
+    
             
-            HStack {
-                Button("Select a photo") {
-                    isImagePickerShowing = true
-                }
-                .padding()
-                
-                
-                Button("Take a photo") {
-                    
-                }
-                .padding()
+            Button("Select a Photo") {
+                self.sourceType = .photoLibrary
+                isImagePickerShowing = true
             }
+            .padding()
+            
+            Button("Take a Photo") {
+                self.sourceType = .camera
+                isImagePickerShowing = true
+            }
+            .padding()
+
         }
-        .sheet(isPresented: $isImagePickerShowing)
-        {
-            ImagePicker(selectedImage: $selectedImage, isImagePickerShowing: $isImagePickerShowing)
-        }
+        .sheet(isPresented: $isImagePickerShowing) {
+                    ImagePicker(selectedImage: $selectedImage, isImagePickerShowing: $isImagePickerShowing, sourceType: self.sourceType)
+                }
+    }
+    
+      
+        
+}
+
+struct CameraView_Previews: PreviewProvider {
+    static var previews: some View {
+        CameraView()
     }
 }
-    struct CameraView_Previews: PreviewProvider {
-        static var previews: some View {
-            ContentView()
-        }
-    }
