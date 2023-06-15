@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        var shirtsDisplay: [UIImage] = [UIImage(named: "shirt1")!,UIImage(named: "shirt2")!,UIImage(named: "shirt3")!,UIImage(named: "shirt4")!,UIImage(named: "shirt5")!,UIImage(named: "shirt6")!,UIImage(named: "shirt7")!,UIImage(named: "shirt8")!,UIImage(named: "shirt9")!,UIImage(named: "shirt10")!]
         NavigationView{
             ZStack{
                 Color("bkColor")
