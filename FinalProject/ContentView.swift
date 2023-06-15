@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        var shirtsDisplay: [UIImage] = [UIImage(named: "shirt1")!,UIImage(named: "shirt2")!,UIImage(named: "shirt3")!,UIImage(named: "shirt4")!,UIImage(named: "shirt5")!,UIImage(named: "shirt6")!,UIImage(named: "shirt7")!,UIImage(named: "shirt8")!,UIImage(named: "shirt9")!,UIImage(named: "shirt10")!]
         NavigationView{
             ZStack{
                 Color("bkColor")
@@ -16,7 +17,6 @@ struct ContentView: View {
                 VStack {
                     Text("Clean Closet")
                         .font(.custom("AmericanTypewriter", fixedSize:34))
-                        //.font(.largeTitle)
                         .fontWeight(.bold)
                         .foregroundColor(Color("gColor"))
                         .padding(.bottom)
@@ -41,7 +41,7 @@ struct ContentView: View {
                             ForEach(0..<10) {
                                 Text("Item \($0)")
                                     .foregroundColor(.white)
-                                    .font(.largeTitle)
+                                    .font(.custom("American Typewriter", fixedSize: 23))
                                     .frame(width: 125, height: 125)
                                     .background(.green)
                             }
@@ -55,7 +55,7 @@ struct ContentView: View {
                             ForEach(0..<10) {
                                 Text("Item \($0)")
                                     .foregroundColor(.white)
-                                    .font(.largeTitle)
+                                    .font(.custom("American Typewriter", fixedSize: 23))
                                     .frame(width: 125, height: 125)
                                     .background(.green)
                             }
@@ -70,7 +70,7 @@ struct ContentView: View {
                             ForEach(0..<10) {
                                 Text("Item \($0)")
                                     .foregroundColor(.white)
-                                    .font(.largeTitle)
+                                    .font(.custom("American Typewriter", fixedSize: 23))
                                     .frame(width: 125, height: 125)
                                     .background(.green)
                             }
@@ -79,24 +79,29 @@ struct ContentView: View {
                     }
                     .frame(height: 100)
                     .padding(EdgeInsets(top: -50, leading: 15, bottom:0, trailing: 15))
-                    NavigationLink(destination: CameraView()) {
-                        Image("camButton")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 150)
-                        Spacer()
-                            .padding(.leading, -400.0)
-                    }
-                    NavigationLink(destination: SearchView()) {
-                        Image("iButton")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 50)
-                            .padding(.trailing, 275.0)
+                    
+                    
+                }
+                .toolbar{
+                    ToolbarItemGroup(placement: .status) {
+                        NavigationLink(destination: SearchView()) {
+                            Image("iButton")
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 50)
+                            
+                        }
+                        NavigationLink(destination: CameraView()) {
+                            Image("camButton")
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 150)
+                            
+                        }
                         
                     }
                 }
-                .padding(.top, 60.0)
+                .padding(.top, -50)
             }
         }
     }

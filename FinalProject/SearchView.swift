@@ -14,15 +14,19 @@ struct SearchView: View {
                 .edgesIgnoringSafeArea(.all)
             VStack{
                 Text("Sustainable Fashion Resources")
+                    .font(.custom("American Typewriter", fixedSize: 23))
                 
                 Link("1.HONEST BASICS", destination: URL(string: "https://www.honest-basics.com/")!)
                     .foregroundColor(.green)
+                    .font(.custom("American Typewriter", fixedSize: 23))
                 
                 Link("2.Yes Friends", destination: URL(string: "https://yesfriends.co/collections/women")!)
                     .foregroundColor(.green)
+                    .font(.custom("American Typewriter", fixedSize: 23))
                 
                 Link("3.Wear PACT", destination: URL(string: "https://wearpact.com/women/apparel/tops%20&%20shirts")!)
                     .foregroundColor(.green)
+                    .font(.custom("American Typewriter", fixedSize: 23))
                 
             }
         }

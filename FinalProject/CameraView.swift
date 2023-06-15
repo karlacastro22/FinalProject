@@ -14,28 +14,36 @@ struct CameraView: View {
     
     
     var body: some View {
-        VStack {
-            Image(uiImage: selectedImage ?? UIImage(named: "AppIcon")!)
-                .resizable(resizingMode: .stretch)
-                .aspectRatio(contentMode: .fit)
-    
-            
-            Button("Select a Photo") {
-                self.sourceType = .photoLibrary
-                isImagePickerShowing = true
-            }
-            .padding()
-            
-            Button("Take a Photo") {
-                self.sourceType = .camera
-                isImagePickerShowing = true
-            }
-            .padding()
-
-        }
-        .sheet(isPresented: $isImagePickerShowing) {
-                    ImagePicker(selectedImage: $selectedImage, isImagePickerShowing: $isImagePickerShowing, sourceType: self.sourceType)
+        ZStack{
+            Color("bkColor")
+                .edgesIgnoringSafeArea(.all)
+            VStack {
+                Image(uiImage: selectedImage ?? UIImage(named: "camButton")!)
+                    .resizable(resizingMode: .stretch)
+                    .aspectRatio(contentMode: .fit)
+                
+                
+                Button("Select a Photo") {
+                    self.sourceType = .photoLibrary
+                    isImagePickerShowing = true
                 }
+                .font(.custom("American Typewriter", fixedSize: 20))
+                .foregroundColor(Color("gColor"))
+                .padding()
+                
+                Button("Take a Photo") {
+                    self.sourceType = .camera
+                    isImagePickerShowing = true
+                }
+                .font(.custom("American Typewriter", fixedSize: 20))
+                .foregroundColor(Color("gColor"))
+                .padding()
+                
+            }
+            .sheet(isPresented: $isImagePickerShowing) {
+                ImagePicker(selectedImage: $selectedImage, isImagePickerShowing: $isImagePickerShowing, sourceType: self.sourceType)
+            }
+        }
     }
     
       
